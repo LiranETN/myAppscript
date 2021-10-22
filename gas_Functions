@@ -1,0 +1,4 @@
+function isHM(theRow){
+  const findTxt = "abc"; // find "abc" inside string 
+  return (theRow[1].indexOf(findTxt) !== -1); // return text in column 2 within the array
+}
