@@ -1,3 +1,14 @@
+function getRawData(){
+
+// Set target sheet to get data
+
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheetName = "Name"; // Target Sheet Name
+  const rawSheet = ss.getSheetByName(sheetName);
+  const rawData = rawSheet.getDataRange().getValues();
+
+  return rawData
+}
 function isHM(theRow){
   const findTxt = "abc"; // find "abc" inside string 
   return (theRow[1].indexOf(findTxt) !== -1); // return text in column 2 within the array
