@@ -14,9 +14,7 @@ Sub FilterByActiveCell(tVal, iCol)
         tbl.AutoFilter.ShowAllData
     End If
     tbl.Range.AutoFilter Field:=iCol, Criteria1:=tVal
-    
-   
-    
+
 End Sub
 
 '' --------------------------------------------------------------------------------
@@ -38,3 +36,30 @@ Target.Select
 
 End Sub
 '' --------------------------------------------------------------------------------
+
+Sub SoryByID()
+
+    Dim ws As Worksheet
+    Dim tbl As ListObject
+    Dim rng As Range
+    Dim tName As String
+    Dim ColName As String
+    Dim SortCol As String
+    
+    tName = ActiveCell.ListObject.Name
+    ColName = "ID" '' Insert table column title
+    
+    Set ws = ActiveSheet
+    Set tbl = ws.ListObjects(tName)
+    SortCol = tName & "[" & ColName & "]"
+    
+    Set rng = Range(SortCol)
+                   
+    With tbl.Sort
+       .SortFields.Clear
+       .SortFields.Add Key:=rng, SortOn:=xlSortOnValues, Order:=xlAscending
+       .Header = xlYes
+       .Apply
+    End With
+    
+End Sub
