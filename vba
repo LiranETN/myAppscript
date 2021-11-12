@@ -4,7 +4,7 @@
 
 If Target.Row = 1 And Target.Value <> "" Then
 SoryActiveRow
-GoTo EndHere
+Exit Sub
 End If
 
 Dim text As String
@@ -15,7 +15,6 @@ CTarget = Target.Column
 
 Call FilterByActiveCell(tTraget, CTarget)
 
-EndHere:
 Cancel = True
 Target.Select
 
